@@ -8,37 +8,77 @@ i have prepared a Postman collection to properly operate the API
 please import the file to your postman use it to your convenient
 
 
-# user credentials:
+# User credentials:
 
-superuser - admin,
+superuser - admin
 
-users - test1, test3, Yossi
+users - test1, test3, Yossi, David
 
 password - 12345 (same password for all the users)
 
+# User email:
 
-# To run the app follow the steps: 
+to send we will use the email as the key, 
+admin - yonirotman159@gmail.com (not a real email)
 
-1) cli: git clone https://github.com/LilManko/Abra_HomeTask_Yonatan_Rotman.git
+test1 - c@c
 
-2) cli: cd Abra_HomeTask_Yonatan_Rotman
+test3 - d@d
 
-3) install virtual environment 
-   cli: pip install virtualenv
+Yossi - y@y
+
+David - E@e
+
+
+# To run the app follow the steps (command line): 
+
+1) git clone https://github.com/LilManko/Abra_HomeTask_Yonatan_Rotman.git
+
+2) cd Abra_HomeTask_Yonatan_Rotman
+
+3) install virtual environment:
+
+   pip install virtualenv
    
-  4) cli: py -m virtualenv myenv
+  4) py -m virtualenv myenv
 
-5) activate the virtual environment
-  cli: myenv\Scripts\activate
+5) activate the virtual environment: 
+
+    myenv\Scripts\activate
  
-6) install dependencies
-cli: pip install -r requirements.txt
+6) install dependencies:
 
-7) cli: cd ChatAPI
+    pip install -r requirements.txt
 
-8) cli: python manage.py runserver
+7) cd ChatAPI
+
+8) python manage.py runserver
 
 9) open local hold with your web browser (http://127.0.0.1:8000/)
+
+
+# Endpoints:
+
+
+[
+    
+    "/register",
+    
+    "/login",
+    
+    "/logout",
+    
+    "/send_message",
+    
+    "/read_message",
+    
+    "/get_user_messages",
+    
+    "/get_unread_user_messages",
+    
+    "/delete_message"
+]
+
 
 
 # screenshots
@@ -55,6 +95,26 @@ https://i.gyazo.com/6ff10518d69a76d294e8a46860b8b230.png
 
 Write Message(need token):
 https://i.gyazo.com/d48823eff4f3e9ec8a38cdc937d321b1.png
+
+Get User Messages(need token):
+https://i.gyazo.com/4f8f06b28678f1e3a02bdd44ea6c17cc.png
+
+Get Unread User Messages(need token):
+https://i.gyazo.com/4792cb74919664db4eff9d4e36f4e15b.png
+
+Read Message(need token):
+https://i.gyazo.com/efcd75554ce978fce46ffba764858fe1.png
+
+Delete Message(need token):
+https://i.gyazo.com/f72b882a381785cab7cd774ab5ed070b.png
+
+
+
+
+
+
+
+
 
 
 
