@@ -1,0 +1,18 @@
+
+#Register POST
+
+{
+  "username": "test2",
+  "email": "c@c"
+  "password": "12345"
+}
+
+
+
+#Message POST
+
+{
+  "reciver_id": "5",
+  "subject": "hello world ! this is a test message"
+  "details": "test test 123"
+}

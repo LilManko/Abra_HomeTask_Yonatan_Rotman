@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "5c81e0a0-e750-42f3-8710-e7653ccb6e46",
+		"name": "Message API - Abra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21537731"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "<enter username here>",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "<enter email here>",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "<enter password here>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/register/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "<enter username here>",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "<enter password here>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/login/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout (token needed)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/logout/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Write message (token needed)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "<enter email here>",
+							"type": "text"
+						},
+						{
+							"key": "subject",
+							"value": "<enter subject here>",
+							"type": "text"
+						},
+						{
+							"key": "details",
+							"value": "<enter details here>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/send_message/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"send_message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all messages for a specific user (token needed)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/get_user_messages/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"get_user_messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all unread messages for a specific user (token needed)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/get_unread_user_messages/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"get_unread_user_messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read message (updates the message field as \"read\", token needed))",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "message_id",
+							"value": "<enter the message id here>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/read_message/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"read_message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete message (token needed)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "message_id",
+							"value": "<enter the message id here>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/delete_message/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"delete_message",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
