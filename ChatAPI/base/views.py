@@ -54,7 +54,7 @@ def send_message(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_user_messages(request):
-    message = Message.objects.filter(sender=int(request.user.id))
+    message = Message.objects.filter(reciver=int(request.user.id))
     serializer = MessageSerializer(message, many=True)
     return Response(serializer.data)
 
