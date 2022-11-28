@@ -12,6 +12,7 @@ from django.contrib.auth import logout
 # Register
 @api_view(['POST'])
 def register(request):
+    # add an input validator, if the input is valid proceed to create the user 
     User.objects.create_user(username=request.data['username'],email= request.data['email'],password= request.data['password'])
     print(request.data['username'])
     print(request.data['email'])
@@ -36,7 +37,6 @@ def Logout(request):
 def send_message(request):
     try:
         reciver = User.objects.get(email=request.data['reciver'])
-        
     except:
         return Response({'Error':' user matching query does not exist.'}) 
     Message.objects.create(
@@ -54,7 +54,7 @@ def send_message(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_user_messages(request):
-    message = Message.objects.filter(sender=int(request.user.id))
+    message = Message.objects.filter(sender=request.user.id)
     serializer = MessageSerializer(message, many=True)
     return Response(serializer.data)
 
@@ -66,7 +66,7 @@ def get_user_messages(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_unread_user_messages(request):
-    unread_message = Message.objects.filter(sender=int(request.user.id), read=False)
+    unread_message = Message.objects.filter(sender=request.user.id, read=False)
     serializer = MessageSerializer(unread_message, many=True)
     return Response(serializer.data)
    
@@ -96,11 +96,32 @@ def read_message(request):
 def delete_message(request):
     message_id = request.data['id']
     message = Message.objects.get(id=message_id)
-    message.delete()
-    print(message)
-    return Response({'message' : 'Message Deleted'})
+    sender = message.sender
+    reciver = message.reciver
 
+    if request.user.id == sender.id:
+        print(request.user.id == sender.id)
+        message.delete()
+        return Response({'message' : 'Message Deleted'})
 
+    elif request.user.id == reciver.id:
+        print(request.user.id == reciver.id)
+        message.delete()
+        return Response({'message' : 'Message Deleted'})
+
+    else:
+        print(sender.id, reciver.id, request.user.id)
+        return Response({'Error : you are not the sender or reciver'})
+        
+
+# @api_view(['DELETE'])
+# @permission_classes([IsAuthenticated])
+# def delete_message(request):
+#     message_id = request.data['id']
+#     message = Message.objects.get(id=message_id)
+#     message.delete()
+#     print(message)
+#     return Response({'message' : 'Message Deleted'})
 
 
 
