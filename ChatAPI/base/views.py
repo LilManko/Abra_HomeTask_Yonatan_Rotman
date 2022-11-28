@@ -54,11 +54,7 @@ def send_message(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_user_messages(request):
-<<<<<<< HEAD
     message = Message.objects.filter(sender=request.user.id)
-=======
-    message = Message.objects.filter(reciver=int(request.user.id))
->>>>>>> 9e53af29e67d5e20dc1550b5b2d50400196bfafd
     serializer = MessageSerializer(message, many=True)
     return Response(serializer.data)
 
